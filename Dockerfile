@@ -3,9 +3,11 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# ddddocr için gerekli temel kütüphaneler (libgl1 bazen gerekebilir)
+# DÜZELTME BURADA:
+# "libgl1-mesa-glx" yerine sadece "libgl1" yazıyoruz.
+# "libglib2.0-0" ddddocr (opencv) için gereklidir.
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
